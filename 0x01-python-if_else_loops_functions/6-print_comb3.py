@@ -1,4 +1,6 @@
 #!/usr/bin/python3
-for i in range(0, 100):
+for i in range(0, 89):
     if not (i // 10 >= i % 10):
-        print(f"{i:02}{i != 89 and ', ' or chr(10)}", end='')
+        print("{:02}".format(i), end=', ')
+
+print("{:d}".format(89))
