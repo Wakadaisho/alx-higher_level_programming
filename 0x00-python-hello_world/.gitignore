@@ -4,3 +4,4 @@ main.py
 cycle
 .venv
 *.pyc
+__pycache__
