@@ -1,5 +1,14 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
+    """Add values of a tuple pair index-wise
+
+    Args:
+        tuple_a: first pair
+        tuble_b: second pair
+
+    Return:
+        sum of tuple pair
+    """
     sum = [0, 0]
     if (len(tuple_a) == 0):
         pass
