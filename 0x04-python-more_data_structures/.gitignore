@@ -1,0 +1,7 @@
+.venv
+__pycache__
+*-main*
+ctypes
+libPyList.so
+103-tests.py
+libPython.so
