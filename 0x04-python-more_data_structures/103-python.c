@@ -53,6 +53,11 @@ void print_python_list(PyObject *p)
 	int i, size, allocated;
 	PyObject *tmp;
 
+	if (!PyList_Check(p))
+	{
+		printf("  [ERROR] Invalid List Object\n");
+		return;
+	}
 	size = ((PyVarObject *)p)->ob_size;
 	allocated = ((PyListObject *)p)->allocated;
 
