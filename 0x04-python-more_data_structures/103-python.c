@@ -53,7 +53,7 @@ void print_python_list(PyObject *p)
 	int i, size, allocated;
 	PyObject *tmp;
 
-	size = ((PyVarObject*)p)->ob_size;
+	size = ((PyVarObject *)p)->ob_size;
 	allocated = ((PyListObject *)p)->allocated;
 
 	printf("[*] Python list info\n");
@@ -62,7 +62,7 @@ void print_python_list(PyObject *p)
 
 	for (i = 0; i < size; i++)
 	{
-		tmp = ((PyListObject*)p)->ob_item[i];
+		tmp = ((PyListObject *)p)->ob_item[i];
 		printf("Element %i: %s\n", i, tmp->ob_type->tp_name);
 		if (PyBytes_Check(tmp))
 			print_python_bytes(tmp);
