@@ -20,7 +20,7 @@ void print_python_bytes(PyObject *p)
 	char *str;
 
 	printf("[.] bytes object info\n");
-	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
+	if (!PyBytes_Check(p))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
@@ -53,7 +53,7 @@ void print_python_list(PyObject *p)
 	int i, size, allocated;
 	PyObject *tmp;
 
-	size = PyList_Size(p);
+	size = ((PyVarObject*)p)->ob_size;
 	allocated = ((PyListObject *)p)->allocated;
 
 	printf("[*] Python list info\n");
@@ -62,9 +62,9 @@ void print_python_list(PyObject *p)
 
 	for (i = 0; i < size; i++)
 	{
-		tmp = PyList_GET_ITEM(p, i);
+		tmp = ((PyListObject*)p)->ob_item[i];
 		printf("Element %i: %s\n", i, tmp->ob_type->tp_name);
-		if (strcmp(tmp->ob_type->tp_name, "bytes") == 0)
+		if (PyBytes_Check(tmp))
 			print_python_bytes(tmp);
 	}
 }
