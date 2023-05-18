@@ -33,9 +33,9 @@ void print_python_bytes(PyObject *p)
 
 	printf("  first %d bytes: ", bytes);
 
-	for (i = 0; i < bytes; i++)
+	for (i = 0; i < bytes - 1; i++)
 		printf("%02x ", str[i] & 0xff);
-	printf("\n");
+	printf("%02x\n", str[i] & 0xff);
 }
 
 /**
@@ -55,7 +55,7 @@ void print_python_list(PyObject *p)
 
 	if (!PyList_Check(p))
 	{
-		printf("  [ERROR] Invalid List Object\n");
+		printf("[ERROR] Invalid List Object\n");
 		return;
 	}
 	size = ((PyVarObject *)p)->ob_size;
