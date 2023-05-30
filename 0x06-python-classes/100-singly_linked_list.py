@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+Module 100-singly_linked_list
+Has a Node class that defines a unit of data,
+        with appropriate type checks and getters and setters
+SinglyLinkedList class that links up mulitple Node instances
+"""
 
 
 class Node:

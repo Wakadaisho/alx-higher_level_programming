@@ -1,6 +1,13 @@
 #!/usr/bin/python3
 import math
 
+"""
+Module 103-magic_class.py
+Defines a circle class
+Takes in a radius on initialization
+Defines methods for finding area and perimeter of the circle
+"""
+
 
 class MagicClass:
     """Class representing a magic structure, likely a circle"""

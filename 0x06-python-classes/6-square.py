@@ -1,4 +1,14 @@
 #!/usr/bin/python3
+"""
+Module 6-square
+Defines a square class storing the size of its side,
+        as well as a position offset
+Checks for the size to be valid (uses getters and setters)
+Checks for the position to be valid (uses getters and setters)
+Can calculate area
+Prints an ASCII representation of a square, applying position offset
+"""
+
 
 class Square:
     """Class representing a square

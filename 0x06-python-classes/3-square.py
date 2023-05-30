@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+Module 3-square
+Defines a square class storing the size of its side
+Checks for the size to be valid
+Can calculate area
+"""
+
 
 class Square:
     """Class representing a square
