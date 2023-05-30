@@ -104,7 +104,7 @@ class Square:
     def __str__(self):
         _str = ""
         if (self.size == 0):
-            return "\n"
+            return ""
         _str += "\n"*self.position[1]
         for _ in range(self.size - 1):
             _str += f"{' '*self.position[0]}{'#'*self.size}\n"
