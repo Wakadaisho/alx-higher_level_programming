@@ -100,8 +100,6 @@ class Square:
         print("\n"*self.position[1], end="")
         for _ in range(self.size):
             print(f"{' '*self.position[0]}{'#'*self.size}")
-        if (self.size == 0):
-            print()
 
     def __str__(self):
         _str = ""
@@ -110,6 +108,4 @@ class Square:
         _str += "\n"*self.position[1]
         for _ in range(self.size):
             _str += f"{' '*self.position[0]}{'#'*self.size}\n"
-        if (self.size == 0):
-            _str += "\n"
         return _str

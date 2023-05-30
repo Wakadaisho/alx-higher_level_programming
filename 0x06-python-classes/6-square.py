@@ -100,5 +100,3 @@ class Square:
         print("\n"*self.position[1], end="")
         for _ in range(self.size):
             print(f"{' '*self.position[0]}{'#'*self.size}")
-        if (self.size == 0):
-            print()
