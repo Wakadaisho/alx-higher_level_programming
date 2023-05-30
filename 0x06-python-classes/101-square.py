@@ -106,6 +106,7 @@ class Square:
         if (self.size == 0):
             return "\n"
         _str += "\n"*self.position[1]
-        for _ in range(self.size):
+        for _ in range(self.size - 1):
             _str += f"{' '*self.position[0]}{'#'*self.size}\n"
+        _str += f"{' '*self.position[0]}{'#'*self.size}"
         return _str
