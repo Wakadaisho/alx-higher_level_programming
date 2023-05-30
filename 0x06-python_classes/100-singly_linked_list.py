@@ -2,35 +2,70 @@
 
 
 class Node:
+    """Linked list node class
+    """
     def __init__(self, data, next_node=None):
-        if (not isinstance(data, int)):
-            raise TypeError("data must be an integer")
-        self.__data = data
-        if (type(next_node) not in [type(None), type(Node)]):
-            raise TypeError("next_node must be a Node object")
-        self.__next_node = next_node
+        """Init Node
+
+        Args:
+            data (int): value to store in Node
+            next_node (Node/None): next node pointed to
+        """
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
+        """Getter
+
+        Returns:
+            data (int): value stored in Node
+        """
         return self.__data
 
     @data.setter
     def data(self, value):
+        """Setter
+
+        Raises:
+            TypeError: if data is not an integer
+        """
         if (not isinstance(value, int)):
             raise TypeError("data must be an integer")
         self.__data = value
 
     @property
     def next_node(self):
+        """Getter
+
+        Returns:
+            next_node (Node/None): next node poined to
+        """
         return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
+        """Setter
+
+        Raises:
+            TypeError: if value is not a Node object or None
+        """
+        if (type(value) not in [type(None), type(Node)]):
+            raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
 
 class SinglyLinkedList(Node):
+    """Singly linded list class
+
+    List of Nodes pointing to the next in one direction
+    """
     def __init__(self):
+        """Init SinglyLinkedList
+
+        Args:
+            head (Node/None): first node in list
+        """
         self.__head = None
 
     def __str__(self):
@@ -45,6 +80,11 @@ class SinglyLinkedList(Node):
         return __str
 
     def sorted_insert(self, value):
+        """Insert a node into list in the correct ascending position
+
+        Args:
+            value (int): value to be used in new node to insert
+        """
         node = self.__head
         new_node = Node(value)
         if (node is None):
