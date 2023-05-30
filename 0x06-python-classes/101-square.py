@@ -94,18 +94,22 @@ class Square:
 
     def my_print(self):
         """Print out ASCII shape of square, with offset"""
-        print("\n"*self.__position[1], end="")
-        for _ in range(self.__size):
-            print(f"{' '*self.__position[0]}{'#'*self.__size}")
-        if (self.__size == 0):
+        if (self.size == 0):
+            print()
+            return
+        print("\n"*self.position[1], end="")
+        for _ in range(self.size):
+            print(f"{' '*self.position[0]}{'#'*self.size}")
+        if (self.size == 0):
             print()
 
     def __str__(self):
-        """Print out ASCII shape of square, with offset"""
         _str = ""
-        _str += "\n"*self.__position[1]
-        for _ in range(self.__size):
-            _str += f"{' '*self.__position[0]}{'#'*self.__size}\n"
-        if (self.__size == 0):
+        if (self.size == 0):
+            return "\n"
+        _str += "\n"*self.position[1]
+        for _ in range(self.size):
+            _str += f"{' '*self.position[0]}{'#'*self.size}\n"
+        if (self.size == 0):
             _str += "\n"
         return _str
