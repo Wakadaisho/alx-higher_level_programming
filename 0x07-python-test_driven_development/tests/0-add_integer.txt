@@ -1,0 +1,48 @@
+#!/usr/bin/python3
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# POSITIVE TEST CASES
+
+>>> add_integer(1)					# single int
+99
+
+>>> add_integer(-8)					# single negative int
+90
+
+>>> add_integer(5.5)				# single float
+103
+
+>>> add_integer(-905.5)				# single negative float
+-807
+
+>>> add_integer(-1997.5, 2003)		# one int one float mixed parity
+6
+
+>>> add_integer(0, -50)				# two ints, mixed parity
+-50
+
+>>> add_integer(22.0, -10.8)		# two floats, mixed parity
+12
+
+# NEGATIVE TEST CASES
+
+>>> add_integer()		# no args
+Traceback (most recent call last):
+  ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer("one", 2.2)		# bad first arg
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+>>> add_integer(1, [])		# bad second arg
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
+
+>>> add_integer(None, {})		# all bad args
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
