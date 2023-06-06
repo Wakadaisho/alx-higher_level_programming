@@ -1,0 +1,60 @@
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# POSITIVE TEST CASES
+
+>>> matrix = [[10]]
+>>> matrix_divided(matrix, 3)							# 1 x 1, float result, 2 d.p.
+[[3.33]]
+>>> matrix												# unchanged original
+[[10]]
+>>> matrix_divided([[10, 23.456], [0, 0.5]], 2.5)		# 2 x 2, float result, 2 d.p.
+[[4.0, 9.38], [0.0, 0.2]]
+>>> matrix_divided([[10, 23.45], [0, 0]], 1)			# 2 x 2, divisor 1, result 2 d.p.
+[[10.0, 23.45], [0.0, 0.0]]
+
+# NEGATIVE TEST CASES
+
+>>> matrix_divided()											# no args
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+>>> matrix_divided([[1,2,3]])									# no second arg
+Traceback (most recent call last):
+  ...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+>>> matrix_divided("matrix", 2.2)								# bad first arg (wrong type)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[1,2,3],["4", "5", "6"]], 2.2)				# bad first arg (wrong type, inner list)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[1,2,3], (4, 5, 6), 2.2)				# bad first arg (wrong type, second element)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[]], 2)										# bad first arg (empty matrix)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([], 2.2)										# bad first arg (wrong type, no list)
+Traceback (most recent call last):
+  ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([[1,2],[1,2,3]], 2)							# bad first arg (unequal row lengths)
+Traceback (most recent call last):
+  ...
+TypeError: Each row of the matrix must have the same size
+>>> matrix_divided([[1]], "two")								# bad second arg (wrong type)
+Traceback (most recent call last):
+  ...
+TypeError: div must be a number
+>>> matrix_divided([[1]], 0)									# zero division
+Traceback (most recent call last):
+  ...
+ZeroDivisionError: division by zero
+>>> matrix_divided([[1]], 0.0)									# zero division
+Traceback (most recent call last):
+  ...
+ZeroDivisionError: division by zero

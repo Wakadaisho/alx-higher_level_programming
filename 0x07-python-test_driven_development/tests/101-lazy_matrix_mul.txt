@@ -1,0 +1,64 @@
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+# POSITIVE TEST CASES
+
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[ 7 10]
+ [15 22]]
+>>> print(lazy_matrix_mul([[1, 2]], [[3.0, 4.0], [5, 6.0]]))
+[[13. 16.]]
+
+
+# NEGATIVE TEST CASES
+
+>>> lazy_matrix_mul()											# no args
+Traceback (most recent call last):
+  ...
+TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+>>> lazy_matrix_mul([[1,2,3]])									# no second arg
+Traceback (most recent call last):
+  ...
+TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+>>> lazy_matrix_mul("matrix", [[1, 2], [3, 4]])					# bad first arg (wrong type)
+Traceback (most recent call last):
+  ...
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'multiply' did not contain a loop with signature matching types (dtype('<U6'), dtype('<U1')) -> None
+>>> lazy_matrix_mul([[1, 2], [3, 4]], 123)						# bad second arg (wrong type)
+array([[123, 246],
+       [369, 492]])
+>>> lazy_matrix_mul([["1", "2"], [3, 4]], [[1,2],[3,4]])		# bad first arg (wrong type, inner list)
+Traceback (most recent call last):
+  ...
+ValueError: data type must provide an itemsize
+>>> lazy_matrix_mul([[1,2],[3, 4]],[["1", "2"], [3, 4]])		# bad second arg (wrong type, inner list)
+Traceback (most recent call last):
+  ...
+ValueError: data type must provide an itemsize
+>>> lazy_matrix_mul([[]], [[1,2], [3,4]])						# bad first arg (empty matrix I)
+Traceback (most recent call last):
+  ...
+ValueError: shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
+>>> lazy_matrix_mul([], [[1,2], [3,4]])							# bad first arg (empty matrix II)
+Traceback (most recent call last):
+  ...
+ValueError: shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
+>>> lazy_matrix_mul([[1,2], [3,4]], [[]])						# bad second arg (empty matrix I)
+Traceback (most recent call last):
+  ...
+ValueError: shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
+>>> lazy_matrix_mul([[1,2], [3,4]], [])							# bad second arg (empty matrix II)
+Traceback (most recent call last):
+  ...
+ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
+>>> lazy_matrix_mul([[1,2],[1,2,3]], [[1,2],[3,4]])				# unequal row lengths arg 1
+Traceback (most recent call last):
+  ...
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+>>> lazy_matrix_mul([[1,2],[3,3]], [[1,2,2],[3,4]])				# unequal row lengths arg 2
+Traceback (most recent call last):
+  ...
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
+>>> lazy_matrix_mul([[1,2], [3, 4]], [[1,2]])					# incompatible matrix dimensions
+Traceback (most recent call last):
+  ...
+ValueError: shapes (2,2) and (1,2) not aligned: 2 (dim 1) != 1 (dim 0)
