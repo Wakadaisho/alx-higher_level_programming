@@ -30,10 +30,6 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 Traceback (most recent call last):
   ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
->>> matrix_divided([[1,2,3], (4, 5, 6), 2.2)				# bad first arg (wrong type, second element)
-Traceback (most recent call last):
-  ...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix_divided([[]], 2)										# bad first arg (empty matrix)
 Traceback (most recent call last):
   ...

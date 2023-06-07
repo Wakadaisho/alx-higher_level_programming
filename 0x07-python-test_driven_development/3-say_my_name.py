@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 
+"""
+Module 3-say_my_name
+Takes two possible strings and makes an introduction
+Prints a formatted string
+"""
+
+
 def say_my_name(first_name, last_name=""):
     if (not isinstance(first_name, str)):
         raise TypeError("first_name must be a string")

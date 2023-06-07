@@ -1,6 +1,25 @@
 #!/usr/bin/python3
 
+"""
+Module 100-matrix_mul
+Find the dot product of two matrices
+Return the new matrix
+"""
+
+
 def matrix_mul(m_a, m_b):
+    """Multiply two matrices
+
+    Args:
+        m_a: matrix 1
+        m_b: matrix 2
+
+    Raises:
+        TypeError: if matrices are not list of lists of numbers
+                    if the matrices don't have the same length rows
+        ValueError: if matrices are empty lists
+                    if matrices cannot be multiplied
+    """
     # Check for list of lists
     if (not isinstance(m_a, list)):
         raise TypeError("m_a must be a list")
