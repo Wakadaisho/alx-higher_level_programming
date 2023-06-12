@@ -1,0 +1,31 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+# POSITIVE TEST CASES
+>>> bg.integer_validator("my_int", 12)
+
+# NEGATIVE TEST CASES
+>>> bg.integer_validator()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+>>> bg.integer_validator("int")
+Traceback (most recent call last):
+..
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+>>> bg.integer_validator("not int", 3.14)
+Traceback (most recent call last):
+..
+TypeError: not int must be an integer
+>>> bg.integer_validator("bool", True)
+Traceback (most recent call last):
+..
+TypeError: bool must be an integer
+>>> bg.integer_validator("zero", 0)
+Traceback (most recent call last):
+..
+ValueError: zero must be greater than 0
+>>> bg.integer_validator("negative", -9)
+Traceback (most recent call last):
+..
+ValueError: negative must be greater than 0
