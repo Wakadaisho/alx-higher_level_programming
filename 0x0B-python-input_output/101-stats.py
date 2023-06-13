@@ -18,6 +18,13 @@ prints those statistics since the beginning:
 """
 
 
+def print_block(size, codes):
+    print("File size: {:d}".format(size))
+    for k, v in sorted(codes.items()):
+        if (v):
+            print("{:s}: {:d}".format(k, v))
+
+
 if __name__ == "__main__":
     import sys
 
@@ -33,16 +40,7 @@ if __name__ == "__main__":
                 codes[cols[-2]] += 1
             lines += 1
             if (lines % 10 == 0):
-                print("File size: {:d}".format(size))
-                for k, v in sorted(codes.items()):
-                    if (v):
-                        print("{:s}: {:d}".format(k, v))
+                print_block(size, codes)
     except KeyboardInterrupt:
-        print("File size: {:d}".format(size))
-        for k, v in sorted(codes.items()):
-            if (v):
-                print("{:s}: {:d}".format(k, v))
-    print("File size: {:d}".format(size))
-    for k, v in sorted(codes.items()):
-        if (v):
-            print("{:s}: {:d}".format(k, v))
+        print_block(size, codes)
+    print_block(size, codes)
