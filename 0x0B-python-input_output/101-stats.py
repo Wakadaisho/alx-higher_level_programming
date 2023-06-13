@@ -25,7 +25,6 @@ if __name__ == "__main__":
              '403': 0, '404': 0, '405': 0, '500': 0}
     size = 0
     lines = 0
-
     try:
         for line in sys.stdin:
             cols = line.strip().split(" ")
@@ -34,15 +33,16 @@ if __name__ == "__main__":
                 codes[cols[-2]] += 1
             lines += 1
             if (lines % 10 == 0):
-                sys.stdout.write(f"File size: {size}\n")
-                for k, v in codes.items():
+                print("File size: {:d}".format(size))
+                for k, v in sorted(codes.items()):
                     if (v):
-                        sys.stdout.write(f"{k}: {v}\n")
-                lines = 0
-                sys.stdout.flush()
+                        print("{:s}: {:d}".format(k, v))
     except KeyboardInterrupt:
-        sys.stdout.write(f"File size: {size}\n")
-        for k, v in codes.items():
+        print("File size: {:d}".format(size))
+        for k, v in sorted(codes.items()):
             if (v):
-                sys.stdout.write(f"{k}: {v}\n")
-        sys.stdout.flush()
+                print("{:s}: {:d}".format(k, v))
+    print("File size: {:d}".format(size))
+    for k, v in sorted(codes.items()):
+        if (v):
+            print("{:s}: {:d}".format(k, v))
