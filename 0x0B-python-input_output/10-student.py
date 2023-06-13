@@ -24,8 +24,6 @@ class Student:
         Return:
             dictionary representation of object
         """
-        attrs = attrs or []
-        data = self.__dict__.copy()
-        if (len(attrs) == 0):
-            return data
-        return dict(filter(lambda k: k[0] in attrs, data.items()))
+        if (attrs is None):
+            return self.__dict__
+        return dict(filter(lambda k: k[0] in attrs, self.__dict__.items()))
