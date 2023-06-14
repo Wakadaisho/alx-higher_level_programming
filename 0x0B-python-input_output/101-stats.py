@@ -35,6 +35,8 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             cols = line.strip().split(" ")
+            if (len(cols) == 1):
+                continue
             size += int(cols[-1])
             if (cols[-2] in codes):
                 codes[cols[-2]] += 1
