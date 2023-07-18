@@ -2,4 +2,5 @@
 
 SELECT
 *
-FROM first_table;
+FROM
+first_table;
